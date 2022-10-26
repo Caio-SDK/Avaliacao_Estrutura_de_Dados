@@ -16,27 +16,39 @@ class Menu:
             print("""
 [ 1 ] - Cadastrar novo professor
 [ 2 ] - Exibir todos os professores
-[ 3 ] - Verificar quantidade de professores no campus
-[ 4 ] - Sair do sistema
+[ 3 ] - Remover professor da lista
+[ 4 ] - Verificar quantidade de professores no campus
+[ 5 ] - Sair do sistema
 """)
-            opcao_desejada = Validacao.ValidacaoOpcoes("Digite o número da opção desejada: ", 1, 4)
+            opcao_desejada = Validacao.ValidacaoOpcoes("Digite o número da opção desejada: ", 1, 5)
 
-            if opcao_desejada == 1:
+            if (opcao_desejada == 1):
 
                 professor = Menu.CadastroProfessor()
 
                 lista_prioridade.push(professor)
 
-            elif opcao_desejada == 2:
+            elif (opcao_desejada == 2):
 
                 print("\nPROFESSORES")
                 print(lista_prioridade)
             
-            elif opcao_desejada == 3:
+            elif (opcao_desejada == 3):
+
+                if not (lista_prioridade.empty()):
+                    
+                    lista_prioridade.pop()
+                    print("Professor removido!")
+                
+                else:
+
+                    print("Não existe nenhum professor na lista de prioridades\nTeste novamamente mais tarde...")
+            
+            elif (opcao_desejada == 4):
 
                 Menu.DashboardCampus()
         
-            elif opcao_desejada == 4:
+            elif (opcao_desejada == 5):
 
                 sys.exit()
 
@@ -44,7 +56,7 @@ class Menu:
     @staticmethod
     def CadastroProfessor():
 
-        nome_professor = Validacao.ValidacaoNome("Digite o nome do professor: ").capitalize()
+        nome_professor = Validacao.ValidacaoNome("Digite o nome do professor: ").title()
         matricula_professor = Validacao.ValidacaoNumeroInteiro("Digite a matricula do professor: ")
         sub_area_professor = Validacao.ValidacaoNome("Digite o sub área do professor: ").capitalize()
         campus_atual_professor = Validacao.ValidacaoNome("Digite o campus atual do professor: ").capitalize()
@@ -63,7 +75,4 @@ class Menu:
 
         campus = Validacao.ValidacaoNome("Digite o nome do campus que deseja pesquisar: ").capitalize()
 
-        print(f'\n{lista_prioridade.filter_campus(campus)}')
-
-
-
+        print(f'\nExiste um total de: {lista_prioridade.filter_campus(campus)} professores no campus de {campus}')

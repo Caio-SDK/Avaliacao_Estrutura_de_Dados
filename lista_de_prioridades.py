@@ -1,4 +1,4 @@
-# CRIAÇÃO DE UMA CLASSE PARA A LISTA DE PRIORIDADES
+# CRIAÇÃO DE UMA CLASSE PARA A LISTA DE PRIORIDADE
 class ListaDePrioridade:
 
     # Declarando o método construtor dessa classe
@@ -11,6 +11,30 @@ class ListaDePrioridade:
     def push(self, professor):
 
         self.lista_de_prioridade.append(professor)
+
+        self.lista_de_prioridade = sorted(self.lista_de_prioridade, key=lambda professor: professor.tempo_de_ifce, reverse=True)
+
+    
+    # Declarando o método que verifica se a lista de prioridades está vazia ou não
+    def empty(self):
+
+        # Se a lista de prioridades for vazia
+        if not self.lista_de_prioridade:
+
+            # Retornar True
+            return True
+        
+        # Caso a lista de prioridades não esteja vazia
+        else:
+
+            # Retornar False
+            return False
+
+    
+    def pop(self):
+
+        del self.lista_de_prioridade[0]
+
 
     
     def filter_campus(self, campus):
@@ -28,13 +52,12 @@ class ListaDePrioridade:
 
     def __str__(self):
 
-        lista_reverse = sorted(self.lista_de_prioridade, key=lambda professor: professor.tempo_de_ifce, reverse=True)
-        professores = ''
+        tratamento_string_professor = ''
 
-        for index, professor in enumerate(lista_reverse):
-            professores += f'{index + 1} - {professor}\n'
+        for index, professor in enumerate(self.lista_de_prioridade):
+            tratamento_string_professor += f'{index + 1} - {professor}\n'
 
-        return professores
+        return tratamento_string_professor
 
 
 
