@@ -6,8 +6,11 @@ import sys
 
 lista_prioridade = ListaDePrioridade()
 
+
+# CRIAÇÃO DE UMA CLASSE PARA O MENU
 class Menu:
 
+    # Definição de um método estático para vo menu interativo
     @staticmethod
     def MenuInterativo():
 
@@ -20,6 +23,8 @@ class Menu:
 [ 4 ] - Verificar quantidade de professores no campus
 [ 5 ] - Sair do sistema
 """)
+
+            # Digite suaopção desejada
             opcao_desejada = Validacao.ValidacaoOpcoes("Digite o número da opção desejada: ", 1, 5)
 
             if (opcao_desejada == 1):
@@ -53,6 +58,7 @@ class Menu:
                 sys.exit()
 
 
+    # Definição de um método estático para cadastrar um professor
     @staticmethod
     def CadastroProfessor():
 
@@ -70,6 +76,7 @@ class Menu:
         return registro
 
     
+    # Definição de um método estático para exibir a quantidade de professores naquele determinado campus
     @staticmethod
     def DashboardCampus():
 

@@ -1,8 +1,10 @@
 import sys
 
-
+# CRIAÇÃO DE UMA CLASSE PARA A VALIDAÇÃO
 class Validacao:
 
+
+    # Definição de um método estático para validação de números inteiros
     @staticmethod
     def ValidacaoNumeroInteiro(mensagem):
 
@@ -22,6 +24,7 @@ class Validacao:
                 print("Por favor digite um número válido!!!")
 
     
+    # Definição de um método estático para validação de números decimais
     @staticmethod
     def ValidacaoNumeroDecimal(mensagem, casas_decimais, nota = False):
 
@@ -48,6 +51,7 @@ class Validacao:
                 print("Por favor digite um número válido!!!")
 
 
+    # Definição de um método estático para validação de strings válidas
     @staticmethod
     def ValidacaoNome(mensagem):
 
@@ -63,6 +67,7 @@ class Validacao:
                 return nome
 
  
+    # Definição de um método estático para validação de opções válidas no menu interativo
     @staticmethod
     def ValidacaoOpcoes(mensagem, limite_minino, limite_maximo):
 

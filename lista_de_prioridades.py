@@ -31,12 +31,13 @@ class ListaDePrioridade:
             return False
 
     
+    # Declarando o método que deleta o professor com mais tempo de IFCE
     def pop(self):
 
         del self.lista_de_prioridade[0]
 
 
-    
+    # Declarando o método que recebe como parametro o nome do campus e retorna a quantidade de professores no campus
     def filter_campus(self, campus):
 
         quantidade_professor = 0
@@ -50,6 +51,7 @@ class ListaDePrioridade:
         return quantidade_professor
 
 
+    # Declarando método dunder __str__ para a utilização em um "print"
     def __str__(self):
 
         tratamento_string_professor = ''
